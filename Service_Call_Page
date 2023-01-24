@@ -1,0 +1,41 @@
+<apex:page standardcontroller="Service_Sheet_STD__c" showheader="false" sidebar="false" renderas="pdf" applyHtmlTag="false">
+<head>
+    <style type="text/css" media="print">
+     
+      @page{
+            margin-top: 1.0cm;
+            margin-left: 1.0cm;
+            margin-right: 1.0cm;
+            margin-bottom: 1.0cm;
+        <!--  @bottom-right {
+            content: "page " counter(page)" of " counter(pages);
+            font-family:Arial Unicode MS;
+          }  -->   
+          
+           @bottom-left {
+
+          content: element(footer);
+
+                       }
+            
+            margin-bottom: 4cm;
+          }
+          
+          div.footer {
+        display: block;
+        position: running(footer);
+        font-size:8pt;
+      font-family:sans-serif;
+    }
+    
+    .start{
+      font-size:8pt;
+      font-family:sans-serif;
+       }
+      } 
+      
+      
+    </style> 
+</head>
+<c:Service_Call_Component Sheets="{!Service_Sheet_STD__c}" SSId="{!Service_Sheet_STD__c.Id}"/>
+</apex:page>
