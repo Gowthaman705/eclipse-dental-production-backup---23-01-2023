@@ -1,0 +1,79 @@
+<messaging:emailTemplate subject="" recipientType="Contact"  relatedToType="Opportunity">
+<messaging:htmlEmailBody >
+<table border="0" cellspacing="0" cellpadding="0" width="50%" id="table1">
+<td>
+<br/>
+Dear Sir/Madam,<br/><br/>
+Thank you for your business it is greatly appreciated.<br/>
+Please find your Invoice note attached in PDF format.<br/>
+To load the report, you will need the free Adobe Acrobat reader, available to download at http://www.adobe.com/<br/><br/>
+
+We look forward to your prompt payment and thank you again for your business.<br/><br/>
+
+Our BACS details are:<br/><br/>
+Account name: Eclipse Dental<br/>
+
+Kind Regards<br/>
+</td>
+
+ </table>   
+   
+<table>
+ <tr>
+<td style="color: #48164d;"><b>Service Department | DDI 01322 421156 | <a style="color:blue;" href="http://service@eclipse-dental.com">service@eclipse-dental.com</a></b> </td>
+</tr> 
+<tr>
+<td> <a href="http://www.eclipse-dental.com"><apex:image id="Email_Template" value="https://c.eu6.content.force.com/servlet/servlet.ImageServer?id=01558000001UX7o&oid=00D58000000ZojH"/></a></td>
+</tr>
+<tr>
+<td style="color: #4DB2BE;"><b>Eclipse Dental Engineering</b>  Westview Court  10-14 Kent Road  Dartford  Kent  DA1 2AJ </td>
+</tr>
+<tr><td style="color: #4DB2BE;">Tel 01322 293333   <a style="color:blue;" href="http://www.eclipse-dental.com">www.eclipse-dental.com</a> </td>
+</tr>
+</table>        
+        
+DISCLAIMER The information contained within this e-mail, together with any attachments, is confidential and may be privileged. It is intended for the addressee only. If you have received this e-mail in error please inform the sender and delete this e-mail immediately. The contents of this e-mail must not be copied or disclosed without the sender's consent. Any views and opinions presented here are solely those of the author and do not necessarily represent those of Eclipse Dental Care. Save where this email confirms acceptance of a customer order made with Eclipse Dental Care, unless otherwise expressly agreed in writing, nothing stated in this communication shall be construed as having the effect of forming a binding contract. We make every effort to keep our network free of viruses. However, you should perform your own virus checks before opening any e-mails and attachments, as we cannot accept liability for any viruses which might be transferred by way of this e-mail. Registered Address: Eclipse Dental , Westview Court, 10-14 Kent Road, Dartford,Kent,DA1 2AJ.<br/>
+</messaging:htmlEmailBody>
+
+<messaging:attachment renderAs="pdf" filename="Invoice Copy"> 
+<head>
+<style type="text/css" media="print">
+    @page{
+    size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 3cm;
+    @top-center {
+        content: element(header);
+    }
+    @bottom-left {
+        content: element(footer);
+    }
+}
+
+
+
+div.footer {
+    padding: 15px;
+    position: running(footer);
+}
+
+.pagenumber:before {
+    content: counter(page);
+}
+
+.pagecount:after {
+    content: counter(pages);
+}
+</style>
+</head>  
+             
+    <img src="{!URLFOR($Resource.Watermark)}" width="80%" height="100%" 
+     style="position: fixed;background-repeat:repeat;left: 0cm; top:0cm; z-index:-1"/>
+     
+    <c:InvoicePreviewComponent opp="{!relatedTo}"/>
+
+    </messaging:attachment>     
+         
+</messaging:emailTemplate>
