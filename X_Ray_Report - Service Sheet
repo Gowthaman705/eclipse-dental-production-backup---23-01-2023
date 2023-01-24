@@ -1,0 +1,48 @@
+<apex:page standardController="Engineer_Checklist__c" showheader="false" sidebar="false" renderAs="pdf" applyHtmlTag="false" >
+<head>
+<style type="text/css" media="print">
+                      
+                      @page {
+
+                                 @top-center {
+
+                                       content: element(header);
+
+                               }
+
+                               @bottom-left {
+
+                                     content: element(footer);
+
+                               }
+            
+
+font-family:sans-serif;
+
+                               
+                            }
+
+                                     div.header {
+                                        font-family:sans-serif;
+                                      padding: 10px;
+                                      position: running(header);
+
+                           }
+                       div.footer {
+                       
+                                display: block;
+                                font-family:sans-serif;
+                                padding: 0.5px;
+                                position: running(footer);
+                            
+                      }
+                      
+                      .start{
+                        font-size:8pt;
+                        font-family:sans-serif ;
+                            }
+            </style>
+</head>
+<c:XRayReport xr="{!Engineer_Checklist__c}" Serviceid="{!Engineer_Checklist__c.id}"/>
+               
+</apex:page>
