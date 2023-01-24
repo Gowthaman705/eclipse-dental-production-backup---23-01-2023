@@ -1,0 +1,91 @@
+<!-- =============================================
+*Page Name      : Invoice_Preview
+*Description    :  
+*Company        : Merfantz Technology Pvt Ltd
+*Date           : 25 Feb 2016
+*Version        : 1.0
+============================================= -->
+<apex:page standardController="fax__Invoice__c" extensions="fax.InvoiceCompController" renderAs="pdf" applyHtmlTag="false" applyBodyTag="false" showHeader="false" lightningStylesheets="true"> 
+
+<head>
+
+                <style type="text/css" media="print">
+                        
+                       
+                        @page {      
+                                 @top-center {
+
+                                       content: element(header);
+
+                               }
+
+                               @bottom-left {
+
+                                     content: element(footer);
+                                         page-break-inside:avoid;
+
+                               }
+                             margin:8em 1em 8em; 
+                             
+                            
+                            }
+                            td{
+                            font-family:Arial,Helvetica,sans-serif;
+                            font-weight:normal;
+                            font-size:15px;
+                            }
+                            .tds{
+                            font-family:Arial,Helvetica,sans-serif;
+                            font-weight:normal;
+                            font-size:15px;
+                            }
+                            td.normal{
+                            font-family:Arial,Helvetica,sans-serif;
+                            font-weight:normal;
+                            font-size:15px;
+                            }
+                            td.nbold{
+                            font-family:Arial,Helvetica,sans-serif;
+                            font-weight:bold;
+                            font-size:15px;
+                            }
+
+                                     div.header {
+                                      font-family:Arial,Helvetica,sans-serif;
+                                      position: running(header);
+
+                           }
+                       div.footer {
+
+                               
+                            font-family:Arial,Helvetica,sans-serif;
+                             position: running(footer);
+                         }
+
+                                     .pagenumber:before {
+
+                                        content: counter(page);
+
+                        }
+
+                                   .pagecount:before {
+
+                             content: counter(pages);
+
+                        }
+                        
+                        .page-break {page-break-after: auto;}  
+                        
+                       html{
+                              height: 100%;
+                            }
+                            body {
+                              min-height: 100%;
+                            }               
+                    </style>
+              </head>
+<body style="background-color:{!HTMLENCODE(DefaultTemplate.Background_Color__c)};">
+<c:InvoicePreview InvoiceTemp="{!fax__Invoice__c}" InvoiceTempId="{!fax__Invoice__c.id}"/>
+</body>
+</apex:page>
+             
