@@ -1,0 +1,38 @@
+<apex:page standardController="Credit_Notes__c" renderAs="pdf" applyHtmlTag="false" showHeader="false">
+<head>
+    <style type="text/css" media="print">
+     
+      @page{
+            margin-top: 1.0cm;
+            margin-left: 1.0cm;
+            margin-right: 1.0cm;
+            margin-bottom: 1.0cm;
+     
+         
+           @bottom-left {
+
+          content: element(footer);
+
+                       }
+            
+            margin-bottom: 2cm;
+          }
+          
+          div.footer {
+       
+        position: running(footer);
+         font-size:7pt;
+          font-family:sans-serif;
+    }
+    
+    .first{
+          font-size:8pt;
+          font-family:sans-serif;
+          }
+         
+    
+      
+    </style> 
+</head>
+<c:CreditNote_Component credit="{!Credit_Notes__c}"/ >
+</apex:page>
