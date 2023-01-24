@@ -1,0 +1,41 @@
+<apex:page standardcontroller="Engineer_Checklist__c" showheader="false" sidebar="false" renderAs="pdf" applyHtmlTag="false" >
+<head>
+
+<style type="text/css" media="print">
+
+@page {
+    margin : .2in .2in .2in .2in;
+    font-family:sans-serif;
+    @bottom-left {
+        content: element(footer);
+    }
+   
+    @top-center {
+        content : element(header);
+     }
+
+    div.header {
+        position : running(header) ;
+    }
+    
+    div.footer {
+        display: block;
+        font-family:sans-serif;
+        font-size:10pt;
+        padding: 10px;
+        position: running(footer);
+    }
+    
+    
+}
+
+.start{
+    font-size:8pt;
+    font-family:sans-serif ;
+    }
+
+</style>
+
+</head>
+    <c:AirCompressorComp ac="{!Engineer_Checklist__c}" Serviceid="{!Engineer_Checklist__c.id}"/>
+</apex:page>
