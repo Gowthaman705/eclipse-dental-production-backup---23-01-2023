@@ -1,0 +1,99 @@
+<messaging:emailTemplate subject="Confirmation Of Service" recipientType="Contact" relatedToType="Engineer_Checklist__c" >
+<messaging:htmlEmailBody >
+
+<p style="font-size:13px;font-family:sans-serif;">Dear Customer,</p>
+
+<p style="font-size:13px;font-family:sans-serif;">Thank you for your business, your Certificate of Inspection ({!relatedto.Name}) is attached as a PDF.</p>
+
+<p style="font-size:13px;font-family:sans-serif;">Kind Regards,</p>
+
+<table>
+ <tr>
+<td style=" font-family:sans-serif;color: #10A6A6; font-size:16px; "><b>Service Department</b><br/> 
+
+
+<strong style="color:#696969;font-weight:normal;font-size:11px;">DDI </strong><strong style="color:#696969;font-size:12px;"> 01322 421156 | </strong>    <strong style="color:#696969;font-size:13px;"> 
+     <a style="font-size:13px;color:#696969;text-decoration: none; "   href="http://service@eclipse-dental.com">service@eclipse-dental.com</a> 
+    </strong> 
+</td>
+</tr> 
+<tr>
+<td style="font-family:sans-serif;color: #10A6A6;font-size:13px;"><br/><b>Eclipse Dental Engineering Ltd</b> 
+<br/>
+<strong style="font-weight:normal;color:#696969;font-size:10px;">
+Westview Court  10-14 Kent Road  Dartford  Kent  DA1 2AJ 
+</strong>
+</td>
+</tr>
+
+<tr>
+<td style="font-family:sans-serif;color: #696969;font-size:12px;">Tel:
+<strong style="font-size:12px;color:#10A6A6;">01322 292222&nbsp;&nbsp;&nbsp;<a style="color:#10A6A6;text-decoration: none;" href="http://www.eclipse-dental.com">www.eclipse-dental.com</a>
+</strong>
+</td>
+</tr>
+
+<tr>
+<td style="font-family:sans-serif;"> <a  href="https://eclipse-dental.com/service/maintenance/"><apex:image id="Email_Template" value="https://eclipse-dental--c.um4.content.force.com/servlet/servlet.ImageServer?id=0154I000005A5Ks&oid=00D58000000ZojH&lastMod=1580791694000"/></a></td>
+
+</tr>
+<tr>
+<td><p style="text-align:justify"><font style='font-size:12px;background:white'>This e-mail is confidential and may also be legally privileged.  If you are not the intended recipient, please contact us. The sender does not accept any responsibility for any interception, loss, late arrival or incompleteness with any of the information contained in this email or for its incorrect delivery or non-delivery. Any statements presented are solely those of the author and do not necessarily represent those of the company.</font></p></td>
+</tr>
+
+</table>
+</messaging:htmlEmailBody>
+
+<messaging:attachment filename="{!relatedto.Date_Format__c} Getinge Autoclave Service Certificate" renderAs="pdf" >
+<head>
+<style type="text/css" media="print">
+                      
+                      @page {
+
+                                 @top-center {
+
+                                       content: element(header);
+
+                               }
+
+                               @bottom-left {
+
+                                     content: element(footer);
+
+                               }
+                               
+                               
+margin-top: 1.0cm;
+margin-left: 1.0cm;
+margin-right: 1.0cm;
+margin-bottom: 0.0cm;
+
+
+                               
+                            }
+
+                                     div.header {
+                                        font-family:sans-serif;
+                                      padding: 10px;
+                                      position: running(header);
+
+                           }
+                       div.footer {
+                       
+                                display: block;
+                                font-size:10pt;
+          font-family:sans-serif;
+                                padding: 0.5px;
+                                position: running(footer);
+                            
+                      }
+                      .start{
+                            font-size:10pt;
+          font-family:sans-serif;
+                               }
+            </style>
+</head>
+    <c:GetingeAutoclaveComponent gac="{!relatedTo}" Serviceid="{!relatedTo.Id}"/>
+</messaging:attachment>
+
+</messaging:emailTemplate>
