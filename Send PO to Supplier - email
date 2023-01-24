@@ -1,0 +1,98 @@
+<messaging:emailTemplate subject="New Purchase Order {!relatedTo.Name}" recipientType="User" relatedToType="PurchaseOrder__c">
+    <messaging:htmlEmailBody >
+    
+            <style>
+      
+body {
+font-family:Verdana;
+font-size: 14px;
+}
+</style>
+        <p style="font-size:13px;font-family:Verdana;">
+        Dear Supplier,<br /><br />
+        
+        Please find purchase order attached.  Please send confirmation of receipt of order and availability of goods. Any discrepancies in the prices must be notified before delivery, as well as any carriage costs not shown on the order.<br/><br/>
+    
+        Kind Regards,<br/><br/>
+        </p>
+<table>
+ <tr>
+<td style=" font-family:Verdana;color: #48164d; font-size:16px; "><b>Purchasing</b><br/> 
+     <strong style="color:#696969;font-size:13px;"> 
+     <a style="font-size:13px;color:#696969;text-decoration: none; "   href="http://service@eclipse-dental.com">purhasing@eclipse-dental.com</a> 
+    </strong> 
+</td>
+</tr> 
+<tr>
+<td style="font-family:Verdana;color: #48164d;font-size:13px;"><br/><b>Eclipse Dental Engineering Ltd</b> 
+<br/>
+<strong style="font-weight:normal;color:#696969;font-size:10px;">
+Westview Court  10-14 Kent Road  Dartford  Kent  DA1 2AJ 
+</strong>
+</td>
+</tr>
+
+<tr>
+<td style="font-family:Verdana;color: #696969;font-size:12px;">Tel: 
+<strong style="font-size:12px;color:#48164d;">01322 292222&nbsp;&nbsp;&nbsp;<a style="color:#48164d;text-decoration: none;" href="http://www.eclipse-dental.com">www.eclipse-dental.com</a>
+</strong>
+</td>
+</tr>
+
+<tr>
+<td style="font-family:Verdana;"> <a  href="https://eclipse-dental.com/service/maintenance/"><apex:image id="Email_Template" width="520px" height="300" value="https://eclipse-dental--unifier.sandbox.file.force.com/servlet/servlet.ImageServer?id=0157Z000001KJlL&oid=00D4E0000008dLf&lastMod=1674233642000" /></a></td>
+
+</tr>
+<tr>
+<td><p style="text-align:justify"><font style='font-family:Verdana;font-size:10px;background:white'>This e-mail is confidential and may also be legally privileged.  If you are not the intended recipient, please contact us. The sender does not accept any responsibility for any interception, loss, late arrival or incompleteness with any of the information contained in this email or for its incorrect delivery or non-delivery. Any statements presented are solely those of the author and do not necessarily represent those of the company.</font></p></td>
+</tr>
+
+</table>
+    </messaging:htmlEmailBody>
+<messaging:attachment filename="Eclipse Dental Purchase Order" renderAs="pdf">
+
+<head>
+<style type="text/css" media="print">
+     
+        @page{
+    size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 6.8cm;
+    font-family:Verdana;
+    
+   
+    @top-center {
+        content: element(header);
+    }
+    @bottom-left {
+        content: element(footer);
+    }
+}
+
+div.footer {
+position: running(footer);
+font-size:7pt;
+font-family:sans-serif;
+ margin-left:-40px;
+}
+
+.pagenumber:before {
+    content: counter(page);
+}
+
+.pagecount:after {
+    content: counter(pages);
+}
+.start{
+font-size:8pt;
+font-family:sans-serif ;
+}
+
+</style>
+</head>
+<c:PurchaseOrderComponent po="{!relatedTo}"/>
+        
+</messaging:attachment>
+</messaging:emailTemplate>
