@@ -1,0 +1,239 @@
+<apex:component access="global" rendered="true" controller="ServiceController">
+  <apex:attribute description="xr" name="xr" type="Engineer_Checklist__c"/>
+    <apex:attribute name="Serviceid" type="Id"  assignTo="{!sheetid}" description="Attribute on the component."/>
+  <head>
+     <style type="text/css" media="print">
+                      
+                      @page {
+
+                                 @top-center {
+
+                                       content: element(header);
+
+                               }
+
+                               @bottom-left {
+
+                                     content: element(footer);
+
+                               }
+  height: 130%;                    
+size: 8.3in 11.10in;                                                          
+margin-top: 0.6cm;
+margin-left: 1.0cm;
+margin-right: 1.0cm;
+margin-bottom: 0.0cm;
+
+
+                               
+                            }
+
+                                     div.header {
+                                        font-size:10pt;
+          font-family:sans-serif;
+                                      padding: 10px;
+                                      position: running(header);
+
+                           }
+                       div.footer {
+                       
+                                display: block;
+                                font-size:10pt;
+          font-family:sans-serif;
+                                padding: 0.5px;
+                                position: running(footer);
+                            
+                      }
+                      .start{
+                            font-size:10pt;
+          font-family:sans-serif;
+                               }
+            </style>
+    </head>
+ 
+<body class="start">
+<div style="background-color:#CCC;width: 100% ;">
+    <table width="22%" style="position:absolute;right:15px;">
+    <tr><td rowsapn="2"></td></tr>
+    <tr><td style="vertical-align:bottom;background-color:#CCC;"><img src="{!$Resource.FESS}" width="70" height="65"  title="logo" align="right"/></td>
+    <td><img src="{!$Resource.EclipseDentalLogo}" width="82" height="86"  title="logo" align="right"/></td></tr>
+    </table> 
+    <p style="font-size:30px;position:absolute;left:120px;text-align:center;vertical-align:bottom;"><b>Mechanical X-Ray Report</b></p>
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+    <table width="40%" style="background-color:white;position:absolute;left:20px;">
+      <tr>
+      <td  width="50%" HEIGHT="80" style="border: 1px solid;vertical-align:top;"><apex:outputtext value="{!xr.Service_At__c}" escape="false"/></td>
+      </tr>
+    </table>
+    <table width="40%" style="border: 1px solid;vertical-align:top;background-color:white;position:absolute;right:20px;" >
+      <tr width="50%">
+      <td width="25%" style="vertical-align:text-top;">Date:</td>
+      <td width="25%" style="vertical-align:text-top;"><!-- {!DAY(xr.Date__c)}/{!MONTH(xr.Date__c)}/{!YEAR(xr.Date__c)} -->
+      <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!xr.Date__c}"/></apex:outputtext>
+      </td>
+      </tr>
+      <tr width="50%">
+      <td width="25%" style="vertical-align:sup;">Account Ref :</td>
+      <td width="25%" style="vertical-align:sup;">{!if(xr.Site__r.AccountNumber!=null,xr.Site__r.AccountNumber,xr.Site__r.Parent.AccountNumber)}</td>
+      </tr>
+      <tr  width="50%">
+      <td width="25%" style="vertical-align:sup;">Certificate No.</td>
+      <td width="25%" style="vertical-align:sup;">{!xr.Name}</td>
+      </tr>
+      <tr>
+      <td width="25%" style="vertical-align:top;">Service Type:</td>
+      <td width="25%" style="vertical-align:top;">{!xr.Service_Sheet_Type__c}</td>
+      </tr>
+     </table>
+     <div style="background-color:#CCC;width: 100%;"><br/><br/><br/><br/><br/><br/><br/></div>
+     <div style="background-color:#008C9D;width: 100% ;"><br/></div>
+  </div>
+  <div >
+  <br/>
+               <table width="50%" style="border:1px solid;" border="">
+               <tr>
+ 
+               <td width="25%" style="text-align:right;">Make:</td>
+               <td width="25%" style="border-bottom: solid 1pt;padding: 0px;text-align:left; ;">{!xr.Make__c}</td>
+               </tr>
+               <tr>
+               <td width="20" style="text-align:right;">Model:</td>
+               <td width="20" style="border-bottom: solid 1pt;padding: 0px ;">{!xr.Model__c}</td> 
+               
+               </tr> 
+               <tr>
+               <td width="20" style="text-align:right;">Serial No:</td>
+               <td width="20" style="border-bottom: solid 1pt;padding: 0px ;">{!xr.Serial_No__c}</td> 
+               </tr> 
+               <tr>
+               <td width="20" style="text-align:right;">Tube No:</td>
+               <td width="20" style="border-bottom: solid 1pt;padding: 0px ;">{!xr.Tube_No__c}</td>
+               </tr>
+               
+               <tr>
+               <td width="20" style="text-align:right;">Date Of Manufacture:</td>
+               <td width="20" style="border-bottom: solid 1pt;padding: 0px ;"><!-- {!DAY(xr.Date_Of_Manufacture__c)}/{!MONTH(xr.Date_Of_Manufacture__c)}/{!YEAR(xr.Date_Of_Manufacture__c)} --> 
+               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!xr.Date_Of_Manufacture__c}"/></apex:outputtext>
+               </td>
+               </tr>
+               
+                <tr>
+               <td width="20" style="text-align:right;">Room Name:</td>
+               <td width="20" style="border-bottom: solid 1pt;padding: 0px ;">{!xr.Room_Name__c}</td>
+               </tr>
+               
+               </table>
+               <br/>
+                <table width="100%" style="border-collapse:collapse;">
+                <tr>
+               <td width="50%" colspan="2">Stability &amp; Level:</td>
+               <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!xr.Stability_and_Level__c}</td>
+               </tr>
+               <tr>
+               <td width="50%" colspan="2">Mechanical inspection Of arms and joints:</td>
+               <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!xr.Mechanical_inspection_of_arms_and_joints__c}</td>
+               </tr>
+               <tr>
+               <td width="50%" colspan="2">`Dead-man` Operation Of exposure Switch:</td>
+               <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!xr.Dead_man_Operation_of_exposure_Switch__c}</td>
+               </tr>
+               <tr>
+               <td width="25%" colspan="2">`Mains On` indicator:</td>
+               <td width="35%" style="border-bottom: solid 1pt;text-align:center;">{!xr.Mains_On_indicator__c}</td>
+               </tr>
+               <tr>
+               <td width="25%" colspan="2">`X-rays On` Warning light:</td>
+               <td width="35%" style="border-bottom: solid 1pt;text-align:center;">{!xr.X_rays_On_Warning_light__c}</td>
+               </tr>
+               <tr>
+               <td width="25%" colspan="2">Timer Operation:</td>
+               <td width="35%" style="border-bottom: solid 1pt;text-align:center;">{!xr.Timer_Operation__c}</td>
+               </tr>
+               <tr>
+               <td width="25%" colspan="2">Audible X-rays On Signal:</td>
+               <td width="35%" style="border-bottom: solid 1pt;text-align:center;">{!xr.Audible_X_rays_on_Signal__c}</td>
+               </tr>
+               <tr>
+               <td width="25%" colspan="2">Audible error Signal:</td>
+               <td width="35%" style="border-bottom: solid 1pt;text-align:center;">{!xr.Audible_error_Signal__c}</td>
+               </tr>
+               <tr>
+               <td width="25%" colspan="2">Condition Of hand Switch and lead:</td>
+               <td width="35%" style="border-bottom: solid 1pt;text-align:center;">{!xr.Condition_of_hand_switch_and_lead__c}</td>
+               </tr>
+               <tr>
+               <td width="25%" colspan="2">Earth Continuity:</td>
+               <td width="35%" style="border-bottom: solid 1pt;text-align:center;">{!xr.Earth_Continuity__c}</td>
+               </tr>
+               </table>
+               
+                <div >
+                <table width="100%" border="">
+                    <tr>
+                        <td>  <b>Notes for next service:</b> </td> 
+                    </tr>
+                    <tr>
+                         <td style="white-space:pre-line;" valign="top" height="200"> {!xr.Notes_for_next_service__c} </td>
+                    </tr>
+            </table>
+       </div>
+      
+          <div style="background-color:#CCC;width: 100% ;page-break-inside:avoid;">
+         
+         
+          <table Width="100%"  border="">
+              <tr>
+                  <td width="5%"> </td>
+                  <td width="35%" >Technician Signature:</td>
+                  <td width="10%"></td>
+                  <td width="45%" >Notes / Recommendations:</td>
+                  <td width="5%"> </td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td  height="50" style = "border: 1px solid black;background-color:white;">
+                     <!--    <b><apex:outputText value="{!substitute(xr.Engineer_s_Signature__c,"alt=","height=\"50px\" Alt=")}" escape="false"/></b> -->
+                     <apex:outputPanel rendered="{!Sign}">
+                         <img alt="no img" src="{!TechSign}" style="height:50px;max-width:100%;"/>
+                          </apex:outputPanel> 
+                  </td>
+                   <td></td>
+                     <td rowspan="3" style="border: 1px solid black;vertical-align:text-top;background-color:white;">{!xr.Note__c}</td>                
+                    <td></td> 
+              </tr> 
+              <tr>
+              <td></td>
+                  <td width="25%" >Print:</td>
+                  <td></td>
+                 <td></td>
+                                     
+              </tr>
+              <tr>
+              <td></td>
+                  <td  height="40" style = "border: 1px solid black;background-color:white;">
+                  <apex:outputText value="{!xr.Engineer__r.Name}" escape="false"/>
+                  </td>
+                  <td></td>
+                   <td></td>                 
+              </tr> 
+              <tr>
+              <td></td>
+              <td></td><td></td><td></td><td></td>
+              </tr>
+               <tr>
+               <td></td>
+                  <td  style="font-size:14px;color:#038B99;vertical-align:text-bottom;">Guaranteed solutions....</td>
+                  <td></td>
+                   <td style="color:#038B99;text-align:right;font-size:10px;">Westview Court 10-14 Kent Road<br/>
+                         Dartford Kent DA1 2AJ<br/>
+                         Tel: 01322 293333<br />
+                         service@eclipse-dental.com<br />  
+                         www.eclipse-dental.com 
+                   </td>
+                   <td></td>
+                 </tr> 
+            </table> 
+    </div>
+   </div>
+   </body>
+</apex:component>
