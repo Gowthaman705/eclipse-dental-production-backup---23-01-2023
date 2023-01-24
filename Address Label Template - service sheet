@@ -1,0 +1,23 @@
+<messaging:emailTemplate subject="Address Label" recipientType="Contact" relatedToType="Account">
+<messaging:htmlEmailBody >
+<head>
+<style type="text/css" media="print">
+  @page{    
+        size:A4 portrait;
+        margin-left: 2cm;
+        margin-right: 2.5cm;
+        margin-top: 3cm;
+        margin-bottom: 3cm;
+  }
+</style>
+</head>
+<body style="font-family:Arial Unicode MS;font-size:13px;">
+<b>{!relatedTo.Site_Contact__r.name}</b><br/>
+{!relatedTo.name}<br/>
+{!relatedTo.BillingStreet}<br/>
+{!relatedTo.BillingCity}<br/>
+{!relatedTo.BillingCountry}<br/>
+{!relatedTo.BillingPostalCode}
+</body>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>
