@@ -1,0 +1,48 @@
+<apex:page standardController="Engineer_Checklist__c" showheader="false" sidebar="false" renderAs="pdf" applyHtmlTag="false" >
+<head>
+<style type="text/css" media="print">
+                      
+                      @page {
+
+                                 @top-center {
+
+                                       content: element(header);
+
+                               }
+
+                               @bottom-left {
+
+                                     content: element(footer);
+
+                               }
+                               
+                               
+margin : .2in .2in 10px .2in;
+
+
+                               
+                            }
+
+                                     div.header {
+                                      font-family:font-family:sans-serif;
+                                      padding: 10px;
+                                      position: running(header);
+
+                           }
+                       div.footer {
+                       
+                                display: block;
+                                font-family:font-family:sans-serif;
+                              
+                                position: running(footer);
+                            
+                      }
+                      
+                      .start{
+                        font-size:8pt;
+                        font-family:sans-serif;
+                        }
+            </style>
+</head>
+<c:SuctionPump sp="{!Engineer_Checklist__c}" Serviceid="{!Engineer_Checklist__c.id}"/>
+</apex:page>
