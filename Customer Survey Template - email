@@ -31,12 +31,6 @@ Westview Court  10-14 Kent Road  Dartford  Kent  DA1 2AJ
 </strong></font>
 
 </td>
-<td valign="bottom"   width="61%">
-
-<apex:image id="JohnPic" width="112px" value="https://eclipse-dental--c.um4.content.force.com/servlet/servlet.ImageServer?id=0154I00000524Zi&oid=00D58000000ZojH&lastMod=1600174288000"/>
-&nbsp;&nbsp;&nbsp;
-
-</td>
 </tr>
 <tr>
 <td valign="top"  colspan="2" style="font-family:Verdana;"> <a  href="https://eclipse-dental.com/service/maintenance/"><apex:image id="Email_Template" value="https://eclipse-dental--c.um4.content.force.com/servlet/servlet.ImageServer?id=0154I000005A5Ks&oid=00D58000000ZojH&lastMod=1580791694000"/></a></td>
